@@ -1,8 +1,8 @@
 FROM node:18-slim
 
 WORKDIR /usr/src/app
-COPY package*.json ./
-RUN npm install
+COPY package.json pnpm-lock.yaml ./
+RUN npm install -g pnpm@10.34.9 && pnpm install --frozen-lockfile
 
 COPY . .
 

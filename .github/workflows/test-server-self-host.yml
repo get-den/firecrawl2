@@ -55,12 +55,12 @@ jobs:
           cache: "pnpm"
           cache-dependency-path: './apps/api/pnpm-lock.yaml'
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
         working-directory: ./apps/api
       - name: Install Playwright dependencies
         if: matrix.engine == 'playwright'
         run: |
-          pnpm install
+          pnpm install --frozen-lockfile
           pnpm exec playwright install-deps
           pnpm exec playwright install
         working-directory: ./apps/playwright-service-ts
