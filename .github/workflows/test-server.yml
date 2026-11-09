@@ -71,7 +71,7 @@ jobs:
           cache: "pnpm"
           cache-dependency-path: './apps/api/pnpm-lock.yaml'
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
         working-directory: ./apps/api
       - name: Set up Go
         uses: actions/setup-go@v5
